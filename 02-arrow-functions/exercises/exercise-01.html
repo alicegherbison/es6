@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow functions</title>
+</head>
+<body>
+  <ul>
+    <li data-time="5:17">Flexbox video</li>
+    <li data-time="8:22">Flexbox Video</li>
+    <li data-time="3:34">Redux video</li>
+    <li data-time="5:23">Flexbox video</li>
+    <li data-time="7:12">Flexbox video</li>
+    <li data-time="7:24">Redux video</li>
+    <li data-time="6:46">Flexbox video</li>
+    <li data-time="4:45">Flexbox video</li>
+    <li data-time="4:40">Flexbox video</li>
+    <li data-time="7:58">Redux video</li>
+    <li data-time="11:51">Flexbox video</li>
+    <li data-time="9:13">Flexbox video</li>
+    <li data-time="5:50">Flexbox video</li>
+    <li data-time="5:52">Redux video</li>
+    <li data-time="5:49">Flexbox video</li>
+    <li data-time="8:57">Flexbox video</li>
+    <li data-time="11:29">Flexbox video</li>
+    <li data-time="3:07">Flexbox video</li>
+    <li data-time="5:59">Redux video</li>
+    <li data-time="3:31">Flexbox video</li>
+  </ul>
+  <script>
+    const videos = Array.from(document.querySelectorAll('[data-time]'));
+    const flexboxVideos = videos
+    .filter(video => video.textContent.includes('Flexbox'))
+    .map(video => video.dataset.time)
+    .map(timecode => {
+      const parts = timecode
+      .split(':')
+      .map(part => parseFloat(part));
+      return (parts[0] * 60) + parts[1];
+    })
+    .reduce((runningTotal, seconds) => runningTotal + seconds,0);
+    
+    console.log(flexboxVideos);
+  </script>
+</body>
+</html>
