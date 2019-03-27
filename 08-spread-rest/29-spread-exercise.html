@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>The ...Spread Operator</title>
+  <title>The '...spread' operator</title>
   <style>
     body {
       min-height: 100vh;
@@ -31,11 +31,11 @@
 
 <script>
 //map, spread, queryselector all
-const heading = document.querySelectorAll('.jump');
+const heading = document.querySelector('.jump');
+heading.innerHTML = spanWrap(heading.textContent);
 
 function spanWrap(word) {
-  return [...word];
-  return `<span>${letter}</span>`;
+  return [...word].map(letter => `<span>${letter}</span>`).join('');
 }
 
 </script>
