@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creating promises!</title>
+</head>
+<body>
+  <script>
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject(Error('Alice is cool'));
+      }, 1000);
+    });
+
+    promise
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  </script>
+</body>
+</html>
