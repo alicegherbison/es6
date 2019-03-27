@@ -5,18 +5,55 @@
   <title>Chaining promises and flow control</title>
 </head>
 <body>
-<script>
-  const posts = [
+  <script>
+    const posts = [
     { title: 'I love JavaScript', author: 'Wes Bos', id: 1 },
     { title: 'CSS!', author: 'Chris Coyier', id: 2 },
     { title: 'Dev tools tricks', author: 'Addy Osmani', id: 3 },
-  ];
+    ];
 
-  const authors = [
+    const authors = [
     { name: 'Wes Bos', twitter: '@wesbos', bio: 'Canadian Developer' },
     { name: 'Chris Coyier', twitter: '@chriscoyier', bio: 'CSS Tricks and CodePen' },
     { name: 'Addy Osmani', twitter: '@addyosmani', bio: 'Googler' },
-  ];
-</script>
+    ];
+
+    function getPostByID(id) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const post = posts.find(post => post.id === id);
+          if(post) {
+            resolve(post);
+          } else {
+            reject(Error('No post was found'));
+          }
+        }, 200);
+      });
+    }
+
+    function addAuthorInfo(post) {
+      return new Promise((resolve, reject) => {
+        const authorInfo = authors.find(person => person.name === post.author);
+        if(authorInfo) {
+          post.author = authorInfo;
+          resolve(post);
+        } else {
+          reject(Error('Author not found'));
+        }
+      });
+    }
+
+    getPostByID(2)
+    .then(post => {
+      return addAuthorInfo(post);
+    })
+    .then(author => {
+      console.log(author);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+
+  </script>
 </body>
 </html>
