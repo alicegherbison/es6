@@ -2,4 +2,4 @@
 
 Repo for Wes Bos' [ES6 for Everyone](https://es6.io) course.
 
-Files are only ones for exercises, not full course material.
+Files are only for exercises and follow-along tutorials as needed, not full course material.
