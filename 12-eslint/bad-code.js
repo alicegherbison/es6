@@ -1,3 +1,5 @@
+/* globals twttr ga */
+
 const weather = new Promise((resolve) => {
   setTimeout(() => {
     resolve({ temp: 29, conditions: 'Sunny with Clouds' });
@@ -19,3 +21,6 @@ const streetCarsPromise = fetch('http://data.ratp.fr/api/datasets/1.0/search/?q=
 Promise
   .all([postsPromise, streetCarsPromise])
   .then(responses => Promise.all(responses.map(res => res.json())));
+
+ga.track();
+twttr.trackConversion();
