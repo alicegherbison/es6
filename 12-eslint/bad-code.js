@@ -1,4 +1,5 @@
 /* globals twttr ga */
+/* eslint-disable no-extend-native */
 
 const weather = new Promise((resolve) => {
   setTimeout(() => {
