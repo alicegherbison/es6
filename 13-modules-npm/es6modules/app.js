@@ -1,9 +1,15 @@
-import { apiKey, url, sayHi, age, cat } from './src/config';
+import {
+  apiKey as key,
+  url,
+  sayHi,
+  age,
+  garfield
+} from './src/config';
 
 console.log('Yoohoo');
-console.log(apiKey);
+console.log(key);
 
 sayHi('Alice');
 
 console.log(url);
-console.log(`${cat} is ${age} years old`);
+console.log(`${garfield} is ${age} years old`);

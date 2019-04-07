@@ -9,4 +9,4 @@ export function sayHi(name) {
 const age = 41;
 const cat = 'Garfield';
 
-export { age, cat };
+export { age, cat as garfield };
