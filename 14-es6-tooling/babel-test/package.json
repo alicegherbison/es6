@@ -15,12 +15,24 @@
   "babel": {
     "presets": [
       [
-        "env", {
+        "env",
+        {
           "targets": {
-            "browsers": [ ">0.25%", "not ie 11", "not op_mini all"]
+            "browsers": [
+              "last 2 versions",
+              "safari >= 8"
+            ]
           }
         }
       ]
+    ],
+    "plugins": [
+      "@babel/plugin-syntax-object-rest-spread"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/plugin-syntax-object-rest-spread": "^7.2.0"
   }
 }
