@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Extending</title>
+</head>
+<body>
+  <script>
+    class FilmsCollection extends Array {
+      constructor(name, ...items) {
+        super(...items);
+        this.name = name;
+      }
+
+      add(film) {
+        this.push(film);
+      }
+
+      topRated(limit = 10) {
+        return this.sort((a, b) => (a.stars > b.stars ? -1 : 1)).slice(0, limit);
+      }
+    }
+
+    const films = new FilmsCollection(`Alice's favourite films`,
+    { name: `The Villainess`, stars: 9 },
+    { name: `The Lake House`, stars: 8 },
+    { name: `Charlie's Angels`, stars: 5 },
+    );
+
+    films.add({ name: `Brief Encounter`, stars: 9 });
+
+  </script>
+</body>
+</html>
