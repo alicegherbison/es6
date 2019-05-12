@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generators</title>
+</head>
+<body>
+  <script>
+    function* listCats() {
+      yield 'Magic';
+      yield 'Garfield';
+      yield 'Trevor';
+      yield 'Luna';
+    }
+
+    function* listNumbers() {
+      let i = 0;
+      yield i;
+      i++;
+      yield i;
+      i++
+      yield i;
+    }
+    const catList = listCats();
+    const numberList = listNumbers();
+
+    const cats = [
+    { name: 'Magic', born: '2001' },
+    { name: 'Garfield', born: '1978' },
+    { name: 'Trevor', born: '2012' },
+    { name: 'Luna', born: '2014' },
+    ];
+
+    function* loop(array) {
+      for (const item of array) {
+        yield item;
+      }
+    }
+
+    const catGenerator = loop(cats);
+  </script>
+</body>
+</html>
