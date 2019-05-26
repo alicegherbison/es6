@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Looping generators</title>
+  </head>
+  <body>
+    <script>
+      function* lyrics() {
+        yield `Not your Barbie Girl`;
+        yield `I'm living in my own world`;
+        yield `I ain't plastic`;
+        yield `Call me classic`;
+        yield `You can't touch me there`;
+        yield `You can't touch my body`;
+        yield `Unless I say so`;
+        yield `Ain't your Barbie, no`;
+      }
+
+      const barbie = lyrics();
+
+      for (const line of barbie) {
+        console.log(line);
+      }
+    </script>
+  </body>
+</html>
