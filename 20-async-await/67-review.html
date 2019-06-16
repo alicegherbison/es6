@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Native Promises</title>
+  </head>
+  <video controls class="beautiful"></video>
+  <body>
+    <script>
+      {
+        {
+          /*  fetch('https://api.github.com/users/alicegherbison')
+        .then(response => {
+          return response.json();
+        })
+        .then(json => {
+          console.log(json);
+        })
+        .catch(error => {
+          console.error('Error!');
+        });  */
+        }
+      }
+
+      const video = document.querySelector('.beautiful');
+
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then(mediaStream => {
+          video.srcObject = mediaStream;
+          video.load();
+          video.play();
+        })
+        .catch(error => {
+          console.error('Error!');
+        });
+    </script>
+  </body>
+</html>
