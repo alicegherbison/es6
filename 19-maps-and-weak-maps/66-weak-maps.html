@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>WeakMaps!</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      let cat1 = { name: 'Magic' };
+      let cat2 = { name: 'Garfield' };
+
+      const strong = new Map();
+      const weak = new WeakMap();
+
+      strong.set(cat1, 'Magic is the best!');
+      weak.set(cat2, 'Garfield is the second best!');
+
+      cat1 = null;
+      cat2 = null;
+    </script>
+  </body>
+</html>
