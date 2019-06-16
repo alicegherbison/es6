@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>WeakSets</title>
+  </head>
+  <body>
+    <script>
+      let cat1 = { name: 'Magic', age: 15 };
+      let cat2 = { name: 'Garfield', age: 41 };
+
+      const weakSet = new WeakSet([cat1, cat2]);
+
+      console.log(weakSet);
+      cat1 = null;
+      console.log(weakSet);
+    </script>
+  </body>
+</html>
