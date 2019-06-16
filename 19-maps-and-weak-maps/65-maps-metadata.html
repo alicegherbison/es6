@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Maps!</title>
+    <style>
+      button {
+        border: 0;
+        margin: 10px;
+        padding: 10px 20px;
+
+        font-family: monospace;
+        font-size: 50px;
+      }
+
+      button:focus {
+        outline: 5px solid purple;
+      }
+    </style>
+  </head>
+  <body>
+    <button>t-rex 🦖</button>
+    <button>moon 🌓</button>
+    <button>rainbow 🌈</button>
+    <button>watermelon 🍉</button>
+    <button>bento box 🍱</button>
+
+    <script>
+      const clickCounts = new Map();
+      const buttons = document.querySelectorAll('button');
+
+      buttons.forEach(button => {
+        clickCounts.set(button, 0);
+        button.addEventListener('click', function() {
+          const val = clickCounts.get(this);
+          clickCounts.set(this, val + 1);
+          console.log(clickCounts);
+        });
+      });
+    </script>
+  </body>
+</html>
