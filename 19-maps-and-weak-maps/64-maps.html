@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Maps!</title>
+  </head>
+  <body>
+    <script>
+      const cats = new Map();
+
+      cats.set('Magic', 15);
+      cats.set('Garfield', 41);
+
+      cats.forEach((value, key) => console.log(value, key));
+
+      for (const [key, value] of cats) {
+        console.log(key, value);
+      }
+    </script>
+  </body>
+</html>
