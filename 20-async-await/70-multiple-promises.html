@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Multiple Promises</title>
+  </head>
+  <body>
+    <script>
+      // async function go() {
+      // const promise = fetch('https://api.github.com/users/alicegherbison');
+      // const anotherPromise = fetch('https://api.github.com/users/wesbos');
+      // const responses = await Promise.all([promise, anotherPromise]);
+      // const data = responses.map(response => response.json());
+      // const [alice, wes] = await Promise.all(data);
+      // console.log(alice, wes);
+      // }
+
+      // go();
+
+      async function getData(usernames) {
+        const promises = usernames.map(name =>
+          fetch(`https://api.github.com/users/${name}`).then(response =>
+            response.json(),
+          ),
+        );
+        const data = await Promise.all(promises);
+        console.log(data);
+      }
+
+      getData(['alicegherbison', 'wesbos']);
+    </script>
+  </body>
+</html>
