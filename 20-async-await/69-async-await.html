@@ -14,9 +14,18 @@
         });
       }
 
-      async function go() {
-        console.log('start');
-        const response = await breathe(500);
+      function catchErrors(fn) {
+        return function(...args) {
+          return fn(...args).catch(error => {
+            console.error('Oops');
+            console.error(error);
+          });
+        };
+      }
+
+      async function go(name, reason) {
+        console.log(`Starting for ${name} to help ${reason}!!!`);
+        const response = await breathe(100);
         console.log(response);
         const response2 = await breathe(1000);
         console.log(response2);
@@ -27,7 +36,9 @@
         console.log('end');
       }
 
-      go();
+      const wrappedFunction = catchErrors(go);
+
+      wrappedFunction('Alice', 'her pause and reflect');
     </script>
   </body>
 </html>
